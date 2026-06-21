@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://reverseshadiw2808-png.github.io/-/sitemap.xml
