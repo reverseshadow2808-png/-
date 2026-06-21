@@ -1,46 +1,103 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Regras - DDCraft</title>
-
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretrizes & Regras | DDCraft</title>
+    <link rel="icon" type="image/png" href="image_129a6c.jpg">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0b0f19; }
+    </style>
 </head>
-<body>
+<body class="text-gray-200 antialiased pt-32">
 
-<div class="container">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-[#0b0f19]/80 backdrop-blur-md border-b border-white/5 py-4 px-6 lg:px-16 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-3 font-extrabold text-xl tracking-wider text-white">
+            <img src="image_129a6c.jpg" alt="DDCraft" class="w-10 h-10 rounded-lg border border-red-500/30">
+            DD<span class="text-red-500">CRAFT</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-400">
+            <a href="index.html" class="hover:text-red-500 transition">Início</a>
+            <a href="regras.html" class="text-white hover:text-red-500 transition">Regras</a>
+            <a href="equipe.html" class="hover:text-red-500 transition">Equipe</a>
+            <a href="https://discord.gg/uBZf68TBTN" target="_blank" class="hover:text-blue-400 transition">Discord</a>
+        </div>
+        <a href="index.html" class="bg-white/5 hover:bg-white/10 text-white font-bold text-xs px-5 py-2.5 rounded-lg transition tracking-wide border border-white/10">VOLTAR</a>
+    </nav>
 
-<h1>Regras do DDCraft</h1>
+    <main class="max-w-4xl mx-auto px-6 pb-24">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h1 class="text-3xl md:text-5xl font-black text-white mb-4 tracking-tight">Diretrizes da Comunidade</h1>
+            <p class="text-gray-400 text-sm md:text-base">Garantindo um ambiente justo, competitivo e livre de toxicidade para todos os jogadores.</p>
+        </div>
 
-<h2>Gerais</h2>
+        <div class="space-y-8">
+            <section class="bg-white/2 border border-white/5 p-6 md:p-8 rounded-2xl" data-aos="fade-up">
+                <div class="flex items-center gap-3 mb-6 text-xl font-extrabold text-white">
+                    <i class="fa-solid fa-gavel text-red-500"></i>
+                    <h2>1. Regras Gerais de Jogo</h2>
+                </div>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li class="flex gap-3"><span class="text-red-500 font-bold">&bull;</span> <span><strong>Uso de Hack/Client Modificado:</strong> É estritamente proibido o uso de qualquer software ilícito, injetores ou clients modificados que concedam vantagens físicas injustas (Ex: Reach, Killaura, Fly, Autoclicker).</span></li>
+                    <li class="flex gap-3"><span class="text-red-500 font-bold">&bull;</span> <span><strong>Abuso de Bugs:</strong> Explorar falhas de mapas ou códigos para benefício próprio sem reportar imediatamente à administração resultará em punição pesada.</span></li>
+                    <li class="flex gap-3"><span class="text-red-500 font-bold">&bull;</span> <span><strong>Abuso de Macros e Drag/Butterfly Click Falsos:</strong> Dispositivos ou softwares configurados para burlar o limite orgânico de cliques do jogo não são tolerados.</span></li>
+                </ul>
+            </section>
 
-<ul>
-<li>Respeite todos os jogadores.</li>
-<li>Não utilize cheats.</li>
-<li>Não abuse de bugs.</li>
-<li>Não prejudique o servidor.</li>
-</ul>
+            <section class="bg-white/2 border border-white/5 p-6 md:p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center gap-3 mb-6 text-xl font-extrabold text-white">
+                    <i class="fa-solid fa-comments text-blue-500"></i>
+                    <h2>2. Conduta e Regras do Chat</h2>
+                </div>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li class="flex gap-3"><span class="text-blue-500 font-bold">&bull;</span> <span><strong>Toxicidade e Ofensas:</strong> Respeito mútuo é obrigatório. Comportamentos racistas, preconceituosos, homofóbicos ou discursos de ódio geram banimentos imediatos.</span></li>
+                    <li class="flex gap-3"><span class="text-blue-500 font-bold">&bull;</span> <span><strong>Divulgação Imprópria (Spam/Flood):</strong> Divulgar outros servidores de Minecraft, canais sem parceria oficial ou poluir propositalmente o chat global é proibido.</span></li>
+                </ul>
+            </section>
 
-<h2>Chat</h2>
+            <section class="bg-white/2 border border-white/5 p-6 md:p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center gap-3 mb-6 text-xl font-extrabold text-white">
+                    <i class="fa-solid fa-triangle-exclamation text-amber-500"></i>
+                    <h2>3. Sistema de Punições</h2>
+                </div>
+                <p class="text-sm text-gray-400 mb-4">Nossa moderação atua de maneira transparente e escalonada de acordo com a gravidade da infração:</p>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs md:text-sm border-collapse">
+                        <thead>
+                            <tr class="border-b border-white/10 text-gray-300">
+                                <th class="pb-3 font-bold">Infração</th>
+                                <th class="pb-3 font-bold">1ª Ocorrência</th>
+                                <th class="pb-3 font-bold">Reincidência</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5 text-gray-400">
+                            <tr>
+                                <td class="py-3 font-medium text-white">Uso de Trapaças (Hacks)</td>
+                                <td class="py-3 text-red-400">Ban permanente</td>
+                                <td class="py-3">—</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 font-medium text-white">Ofensa Grave / Discriminação</td>
+                                <td class="py-3 text-amber-400">Mute de 7 dias</td>
+                                <td class="py-3 text-red-400">Ban definitivo</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 font-medium text-white">Spam / Flood Minoritário</td>
+                                <td class="py-3">Mute de 2 horas</td>
+                                <td class="py-3 text-amber-400">Mute de 24 horas</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
 
-<ul>
-<li>Sem spam.</li>
-<li>Sem flood.</li>
-<li>Sem discurso de ódio.</li>
-</ul>
-
-<h2>Punições</h2>
-
-<ul>
-<li>Advertência.</li>
-<li>Mute.</li>
-<li>Banimento temporário.</li>
-<li>Banimento permanente.</li>
-</ul>
-
-<a href="index.html">Voltar</a>
-
-</div>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
 </body>
 </html>
