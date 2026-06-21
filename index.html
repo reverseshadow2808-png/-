@@ -1,139 +1,270 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDCraft | Rede Competitiva de Minecraft (1.8.x)</title>
+    
+    <meta name="description" content="Conecte-se ao DDCraft, o melhor servidor brasileiro de FastBuilder, Bridge e Parkour. Suporte para versões 1.8.x, pirata e premium. Venha treinar e competir!">
+    <meta name="keywords" content="ddcraft, minecraft, servidor minecraft, fastbuilder brasil, bridge, parkour, minecraft 1.8, premium, pirata">
+    <meta property="og:title" content="DDCraft | Rede Competitiva de Minecraft">
+    <meta property="og:description" content="Focado em FastBuilder, Bridge e Parkour. Conecte-se agora e mostre suas habilidades!">
+    <meta property="og:image" content="https://raw.githubusercontent.com/seu-usuario/seu-repositorio/main/image_129a6c.jpg">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#EF4444">
+    
+    <link rel="icon" type="image/png" href="image_129a6c.jpg">
 
-<title>DDCraft - FastBuilder, Bridge e Parkour</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-<meta name="description" content="Servidor brasileiro de FastBuilder, Bridge e Parkour para Minecraft 1.8.x">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0b0f19;
+            overflow-x: hidden;
+        }
 
-<meta property="og:title" content="DDCraft">
-<meta property="og:description" content="Servidor Brasileiro de FastBuilder">
-<meta property="og:image" content="assets/logo.png">
+        /* Efeito de Raios e Atmosfera no Fundo do Hero */
+        .hero-bg {
+            background: radial-gradient(circle at 50% 20%, rgba(239, 68, 68, 0.15) 0%, rgba(29, 78, 216, 0.08) 40%, rgba(11, 15, 25, 1) 80%);
+            position: relative;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
+            opacity: 0.2;
+            pointer-events: none;
+        }
 
-<link rel="icon" href="assets/favicon.png">
-<link rel="stylesheet" href="css/style.css">
+        /* Animação de Flutuação da Logo */
+        .floating-logo {
+            animation: float 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 25px rgba(239, 68, 68, 0.4));
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* Custom Glassmorphism */
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card:hover {
+            border-color: rgba(239, 68, 68, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(239, 68, 68, 0.2);
+        }
+    </style>
 </head>
-<body>
+<body class="text-gray-200 antialiased">
 
-<nav>
-    <div class="logo">
-        <img src="assets/logo.png" alt="DDCraft">
-    </div>
-
-    <ul>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#modos">Modos</a></li>
-        <li><a href="staff.html">Staff</a></li>
-        <li><a href="regras.html">Regras</a></li>
-    </ul>
-</nav>
-
-<header class="hero">
-
-    <img src="assets/logo.png" class="hero-logo">
-
-    <h1>DDCraft</h1>
-
-    <p>
-        O melhor servidor brasileiro de FastBuilder, Bridge e Parkour.
-    </p>
-
-    <div class="ip-box">
-
-        <div>
-            <strong>IP Principal</strong>
-            <p>jogar.ddcraft.fun</p>
-        </div>
-
-        <div>
-            <strong>IP Secundário</strong>
-            <p>play.ddcraft.fun</p>
-        </div>
-
-        <div>
-            <strong>Versão</strong>
-            <p>1.8.x</p>
-        </div>
-
-    </div>
-
-    <div class="buttons">
-
-        <button onclick="copyIP()">
-            Copiar IP
-        </button>
-
-        <a href="https://discord.gg/uBZf68TBTN" target="_blank">
-            Discord
+    <nav class="fixed top-0 left-0 w-full z-50 bg-[#0b0f19]/80 backdrop-blur-md border-b border-white/5 py-4 px-6 lg:px-16 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-3 font-extrabold text-xl tracking-wider text-white">
+            <img src="image_129a6c.jpg" alt="DDCraft" class="w-10 h-10 rounded-lg border border-red-500/30">
+            DD<span class="text-red-500">CRAFT</span>
         </a>
+        <div class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-400">
+            <a href="index.html" class="text-white hover:text-red-500 transition">Início</a>
+            <a href="regras.html" class="hover:text-red-500 transition">Regras</a>
+            <a href="equipe.html" class="hover:text-red-500 transition">Equipe</a>
+            <a href="https://discord.gg/uBZf68TBTN" target="_blank" class="hover:text-blue-400 transition">Discord</a>
+        </div>
+        <button onclick="copyIP('jogar.ddcraft.fun')" class="bg-red-600 hover:bg-red-700 text-white font-bold text-xs px-5 py-2.5 rounded-lg transition tracking-wide shadow-lg shadow-red-600/20 cursor-pointer">
+            <i class="fa-solid fa-copy mr-2"></i> JOGAR AGORA
+        </button>
+    </nav>
 
+    <header class="hero-bg min-h-screen pt-32 pb-20 px-6 flex flex-col justify-center items-center text-center relative">
+        <div class="max-w-4xl mx-auto flex flex-col items-center">
+            <img src="image_129a6c.jpg" alt="DDCraft Logo" class="w-48 h-48 md:w-56 md:h-56 rounded-3xl floating-logo mb-8 object-cover">
+            
+            <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight mb-4" data-aos="fade-up">
+                A Suprema Arena <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-emerald-400 to-blue-500">Competitiva</span>
+            </h1>
+            <p class="text-gray-400 text-base md:text-lg max-w-2xl mb-8 font-medium" data-aos="fade-up" data-aos-delay="100">
+                Treine suas mecânicas ao extremo no melhor servidor brasileiro de FastBuilder, Bridge e Parkour. Compatível com versões <span class="text-white font-semibold">1.8.x</span> (Original & Pirata).
+            </p>
+
+            <div class="inline-flex items-center gap-3 bg-black/40 border border-white/5 px-4 py-2 rounded-full mb-10 text-xs font-semibold" data-aos="fade-up" data-aos-delay="150">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span id="status-indicator" class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span id="server-status" class="text-gray-400">Carregando jogadores...</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md px-4" data-aos="fade-up" data-aos-delay="200">
+                <button onclick="copyIP('jogar.ddcraft.fun')" class="group relative bg-gradient-to-r from-red-600 to-red-700 text-white font-bold p-4 rounded-xl transition shadow-xl shadow-red-600/10 hover:shadow-red-600/30 text-sm tracking-wide cursor-pointer flex flex-col items-center justify-center">
+                    <span class="text-xs text-red-200/70 font-medium mb-0.5">IP PRINCIPAL (CLIQUE PARA COPIAR)</span>
+                    <span class="flex items-center gap-2">jogar.ddcraft.fun <i class="fa-regular fa-copy opacity-60 group-hover:opacity-100 transition"></i></span>
+                </button>
+                <button onclick="copyIP('play.ddcraft.fun')" class="group relative bg-slate-900 border border-white/10 hover:border-white/20 text-white font-bold p-4 rounded-xl transition text-sm tracking-wide cursor-pointer flex flex-col items-center justify-center">
+                    <span class="text-xs text-gray-500 font-medium mb-0.5">IP SECUNDÁRIO (CLIQUE PARA COPIAR)</span>
+                    <span class="flex items-center gap-2">play.ddcraft.fun <i class="fa-regular fa-copy opacity-60 group-hover:opacity-100 transition"></i></span>
+                </button>
+            </div>
+
+            <a href="https://discord.gg/uBZf68TBTN" target="_blank" class="mt-6 inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 font-semibold transition" data-aos="fade-up" data-aos-delay="250">
+                <i class="fa-brands fa-discord text-base"></i> Entrar no nosso Discord Oficial &rarr;
+            </a>
+        </div>
+    </header>
+
+    <section class="py-24 px-6 lg:px-16 max-w-6xl mx-auto border-t border-white/5">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <span class="text-xs font-bold text-red-500 uppercase tracking-widest block mb-2">Quem Somos</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-6">Uma proposta focada em alto rendimento e jogabilidade fluida.</h2>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    O <strong>DDCraft</strong> nasceu da necessidade de entregar uma infraestrutura competitiva impecável para a comunidade brasileira. Focamos no aprimoramento técnico de modalidades cruciais do PvP moderno.
+                </p>
+                <p class="text-gray-400 leading-relaxed">
+                    Com servidores otimizados, registro de blocos instantâneo e sistemas anti-cheat rigorosos, garantimos que sua única preocupação seja aperfeiçoar o seu clique e sua velocidade.
+                </p>
+            </div>
+            <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
+                <div class="p-6 bg-white/2 border border-white/5 rounded-2xl">
+                    <i class="fa-solid fa-bolt text-2xl text-amber-400 mb-4"></i>
+                    <h4 class="text-white font-bold mb-1">Sem Delay</h4>
+                    <p class="text-xs text-gray-400">Conexão nacional de baixa latência para registro perfeito de cliques.</p>
+                </div>
+                <div class="p-6 bg-white/2 border border-white/5 rounded-2xl">
+                    <i class="fa-solid fa-shield-halved text-2xl text-emerald-400 mb-4"></i>
+                    <h4 class="text-white font-bold mb-1">Acessibilidade</h4>
+                    <p class="text-xs text-gray-400">Suporte integral a autenticações Originais e Piratas na versão 1.8.x.</p>
+                </div>
+                <div class="p-6 bg-white/2 border border-white/5 rounded-2xl">
+                    <i class="fa-solid fa-trophy text-2xl text-red-500 mb-4"></i>
+                    <h4 class="text-white font-bold mb-1">Foco Competitivo</h4>
+                    <p class="text-xs text-gray-400">Modos projetados meticulosamente para treino e campeonatos.</p>
+                </div>
+                <div class="p-6 bg-white/2 border border-white/5 rounded-2xl">
+                    <i class="fa-solid fa-users text-2xl text-blue-500 mb-4"></i>
+                    <h4 class="text-white font-bold mb-1">Comunidade ativa</h4>
+                    <p class="text-xs text-gray-400">Interação diária e suporte dedicado através de nossa rede do Discord.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-black/20 border-t border-b border-white/5 px-6 lg:px-16">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-2">Modalidades</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Nossos Modos de Jogo</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl transition duration-300 flex flex-col justify-between" data-aos="fade-up">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-red-500 mb-6 text-xl">
+                            <i class="fa-solid fa-cubes"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">FastBuilder</h3>
+                        <p class="text-sm text-gray-400 mb-6">Aperfeiçoe suas técnicas de construção veloz sob demanda com arenas de tamanhos variados e precisão absoluta.</p>
+                    </div>
+                    <div class="space-y-2 border-t border-white/5 pt-4">
+                        <div class="flex justify-between text-xs font-semibold bg-white/2 px-3 py-2 rounded-lg"><span class="text-gray-400">Extra Easy</span> <span class="text-red-400">9 Blocos</span></div>
+                        <div class="flex justify-between text-xs font-semibold bg-white/2 px-3 py-2 rounded-lg"><span class="text-gray-400">Easy</span> <span class="text-red-400">12 Blocos</span></div>
+                        <div class="flex justify-between text-xs font-semibold bg-white/2 px-3 py-2 rounded-lg"><span class="text-gray-400">Extra Short</span> <span class="text-red-400">15 Blocos</span></div>
+                        <div class="flex justify-between text-xs font-semibold bg-white/2 px-3 py-2 rounded-lg"><span class="text-gray-400">Short</span> <span class="text-red-400">24 Blocos</span></div>
+                        <div class="flex justify-between text-xs font-semibold bg-white/2 px-3 py-2 rounded-lg"><span class="text-gray-400">Normal</span> <span class="text-red-400">48 Blocos</span></div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl transition duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500 mb-6 text-xl">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Bridge</h3>
+                        <p class="text-sm text-gray-400 mb-6">O icônico e tático modo competitivo. Cruze o mapa, monte estratégias de contenção, drible os adversários e marque o ponto.</p>
+                    </div>
+                    <div class="border-t border-white/5 pt-4">
+                        <span class="inline-block text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3 py-1.5 rounded-md">
+                            <i class="fa-solid fa-circle-play mr-1.5"></i> Modo Competitivo Ativo
+                        </span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl transition duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-6 text-xl">
+                            <i class="fa-solid fa-person-running"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Parkour</h3>
+                        <p class="text-sm text-gray-400 mb-6">Desafie sua percepção espacial, aceleração e precisão de saltos milimétricos em trajetórias dinâmicas e imersivas.</p>
+                    </div>
+                    <div class="space-y-2 border-t border-white/5 pt-4">
+                        <div class="flex justify-between text-xs font-semibold bg-white/2 px-3 py-2 rounded-lg"><span class="text-gray-400">Mapa</span> <span class="text-emerald-400">Dimensions</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 lg:px-16 max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center text-sm text-gray-500 gap-6">
+        <div>
+            <p>&copy; 2026 DDCraft. Todos os direitos reservados.</p>
+            <p class="text-xs text-gray-600 mt-1">Não afiliado à Mojang AB ou Microsoft.</p>
+        </div>
+        <div class="flex gap-6">
+            <a href="regras.html" class="hover:text-white transition">Regras</a>
+            <a href="equipe.html" class="hover:text-white transition">Equipe</a>
+            <a href="https://discord.gg/uBZf68TBTN" target="_blank" class="hover:text-white transition">Discord</a>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed bottom-6 right-6 bg-emerald-600 text-white font-bold text-xs px-4 py-3 rounded-xl shadow-2xl opacity-0 transform translate-y-4 transition duration-300 pointer-events-none z-50 flex items-center gap-2">
+        <i class="fa-solid fa-circle-check text-base"></i> IP COPIADO COM SUCESSO!
     </div>
 
-    <div id="status">
-        Carregando status...
-    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
 
-</header>
+        // Função para Copiar o IP
+        function copyIP(ip) {
+            navigator.clipboard.writeText(ip);
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-4');
+            }, 2500);
+        }
 
-<section id="sobre">
+        // Requisição Dinâmica da API de Status do Servidor de Minecraft
+        async function fetchServerStatus() {
+            try {
+                // Utiliza o IP principal para a checagem
+                const response = await fetch('https://api.mcsrvstat.us/2/jogar.ddcraft.fun');
+                const data = await response.json();
+                const textElement = document.getElementById('server-status');
+                const indicator = document.getElementById('status-indicator');
 
-    <h2>Sobre o DDCraft</h2>
-
-    <p>
-        O DDCraft é um servidor brasileiro focado em FastBuilder,
-        Bridge e Parkour. Nosso objetivo é oferecer uma experiência
-        competitiva, divertida e estável para todos os jogadores.
-    </p>
-
-</section>
-
-<section id="modos">
-
-<h2>Modos de Jogo</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>FastBuilder</h3>
-<p>
-Extra Easy (9B)<br>
-Easy (12B)<br>
-Extra Short (15B)<br>
-Short (24B)<br>
-Normal (48B)
-</p>
-</div>
-
-<div class="card">
-<h3>Parkour</h3>
-<p>Dimensions</p>
-</div>
-
-<div class="card">
-<h3>Bridge</h3>
-<p>Treine e dispute partidas competitivas.</p>
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>© 2026 DDCraft</p>
-
-<p>
-Discord Oficial:
-<a href="https://discord.gg/uBZf68TBTN">
-ddcraft
-</a>
-</p>
-
-</footer>
-
-<script src="js/main.js"></script>
-
+                if (data.online) {
+                    textElement.innerHTML = `SERVIDOR ONLINE &bull; <span class="text-white">${data.players.online}</span> JOGADORES CONECTADOS`;
+                    indicator.className = "relative inline-flex rounded-full h-2 w-2 bg-emerald-500";
+                } else {
+                    textElement.innerText = "SERVIDOR OFFLINE NO MOMENTO";
+                    indicator.className = "relative inline-flex rounded-full h-2 w-2 bg-red-500";
+                }
+            } catch (error) {
+                document.getElementById('server-status').innerText = "JOGAR.DDCRAFT.FUN";
+            }
+        }
+        fetchServerStatus();
+        setInterval(fetchServerStatus, 30000); // Atualiza a cada 30 segundos
+    </script>
 </body>
 </html>
