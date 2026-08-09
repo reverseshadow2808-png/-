@@ -6,126 +6,237 @@
   <title>Leaderboards - DDCraft</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <style>
+    /* Keyframes de animação para fade e slide */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Efeito de brilho neon nos cards ao passar o mouse */
+    .card-glow {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .card-glow::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.4), rgba(59, 130, 246, 0.1), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    .card-glow:hover::before {
+      opacity: 1;
+    }
+
+    .card-glow:hover {
+      transform: translateY(-3px);
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-white font-sans antialiased min-h-screen pb-16">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen pb-20 selection:bg-cyan-500 selection:text-slate-950">
+
+  <!-- Background decorativo com Blur refinado -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-cyan-600/10 rounded-full blur-[120px]"></div>
+    <div class="absolute top-1/3 -right-20 w-[400px] h-[300px] bg-blue-600/10 rounded-full blur-[100px]"></div>
+  </div>
 
   <!-- Header -->
-  <header class="w-full py-6 px-8 flex justify-between items-center bg-gray-800/50 backdrop-blur-md border-b border-gray-700">
-    <a href="/" class="text-2xl font-black text-cyan-400 tracking-wider">DDCRAFT</a>
-    <a href="/" class="text-sm font-bold text-gray-400 hover:text-white transition flex items-center gap-2">
-      <i class="fa-solid fa-house text-xs"></i> Voltar ao Início
+  <header class="relative z-10 w-full py-4 px-6 md:px-12 flex justify-between items-center bg-slate-900/60 backdrop-blur-xl border-b border-slate-800/80 shadow-lg">
+    <!-- Logo em Imagem -->
+    <a href="/" class="flex items-center transition hover:opacity-85 active:scale-95">
+      <img src="image_129a6c.jpg" alt="DDCraft Logo" class="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_12px_rgba(6,182,212,0.3)]">
+    </a>
+    
+    <a href="/" class="group text-xs md:text-sm font-semibold text-slate-400 hover:text-white bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 hover:border-slate-600 px-4 py-2 rounded-xl transition duration-200 flex items-center gap-2 backdrop-blur-md">
+      <i class="fa-solid fa-arrow-left text-xs transition-transform group-hover:-translate-x-1"></i>
+      Voltar ao Início
     </a>
   </header>
 
-  <main class="max-w-5xl mx-auto px-4 mt-10">
+  <!-- Conteúdo Principal -->
+  <main class="relative z-10 max-w-5xl mx-auto px-4 mt-12 animate-fade-in">
     
-    <!-- Título Principal -->
-    <div class="text-center mb-12">
-      <h1 class="text-4xl font-extrabold flex items-center justify-center gap-3">
-        <i class="fa-solid fa-trophy text-amber-400"></i> RANKINGS OFICIAIS
+    <!-- Hero / Título Principal -->
+    <div class="text-center mb-14">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold uppercase tracking-wider mb-4 shadow-inner">
+        <i class="fa-solid fa-fire text-xs"></i>
+        Temporada Atual
+      </div>
+      <h1 class="text-4xl md:text-5xl font-black tracking-tight text-white">
+        RANKINGS <span class="bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 bg-clip-text text-transparent">OFICIAIS</span>
       </h1>
-      <p class="text-gray-400 text-sm mt-2">Escolha uma categoria e selecione o mapa ou distância para ver os melhores tempos.</p>
+      <p class="text-slate-400 text-sm md:text-base mt-3 max-w-md mx-auto leading-relaxed">
+        Selecione uma categoria e modalidade para visualizar os recordes e posições dos jogadores.
+      </p>
     </div>
 
-    <!-- SEÇÃO: FASTBRIDGER -->
-    <section class="mb-12">
-      <div class="flex items-center gap-3 mb-6 border-b border-gray-800 pb-3">
-        <i class="fa-solid fa-cubes text-2xl text-cyan-400"></i>
-        <h2 class="text-2xl font-bold uppercase tracking-wide">FastBridger</h2>
+    <!-- SEÇÃO 1: FASTBRIDGER -->
+    <section class="mb-14">
+      <div class="flex items-center gap-3 mb-6 pb-3 border-b border-slate-800/80">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-md">
+          <i class="fa-solid fa-cubes text-lg"></i>
+        </div>
+        <div>
+          <h2 class="text-xl md:text-2xl font-extrabold uppercase tracking-wide text-white">FastBridger</h2>
+          <p class="text-xs text-slate-500">Modalidades de ponte rápida</p>
+        </div>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         
-        <a href="fast-extra-easy.html" class="group bg-gray-800/80 hover:bg-gray-800 border border-gray-700/80 hover:border-cyan-500 p-5 rounded-xl transition duration-200 flex justify-between items-center shadow-lg">
+        <!-- Extra Easy -->
+        <a href="fast-extra-easy.html" class="card-glow group bg-slate-900/60 hover:bg-slate-900 border border-slate-800 hover:border-cyan-500/50 p-5 rounded-2xl transition duration-300 flex justify-between items-center shadow-lg backdrop-blur-md">
           <div>
-            <h3 class="font-bold text-white group-hover:text-cyan-400 transition">Extra Easy</h3>
-            <p class="text-xs font-mono text-gray-400 mt-1">9x0</p>
+            <h3 class="font-bold text-slate-200 group-hover:text-cyan-400 transition-colors">Extra Easy</h3>
+            <span class="inline-block px-2 py-0.5 mt-1.5 text-[11px] font-mono font-medium rounded-md bg-slate-800 text-slate-400 group-hover:bg-cyan-500/10 group-hover:text-cyan-300 transition-colors">
+              9x0
+            </span>
           </div>
-          <i class="fa-solid fa-chevron-right text-gray-500 group-hover:text-cyan-400 transition"></i>
+          <div class="w-8 h-8 rounded-lg bg-slate-800/80 group-hover:bg-cyan-500 text-slate-500 group-hover:text-slate-950 flex items-center justify-center transition-all duration-300 shadow-inner">
+            <i class="fa-solid fa-chevron-right text-xs transition-transform group-hover:translate-x-0.5"></i>
+          </div>
         </a>
 
-        <a href="fast-easy.html" class="group bg-gray-800/80 hover:bg-gray-800 border border-gray-700/80 hover:border-cyan-500 p-5 rounded-xl transition duration-200 flex justify-between items-center shadow-lg">
+        <!-- Easy -->
+        <a href="fast-easy.html" class="card-glow group bg-slate-900/60 hover:bg-slate-900 border border-slate-800 hover:border-cyan-500/50 p-5 rounded-2xl transition duration-300 flex justify-between items-center shadow-lg backdrop-blur-md">
           <div>
-            <h3 class="font-bold text-white group-hover:text-cyan-400 transition">Easy</h3>
-            <p class="text-xs font-mono text-gray-400 mt-1">12x0</p>
+            <h3 class="font-bold text-slate-200 group-hover:text-cyan-400 transition-colors">Easy</h3>
+            <span class="inline-block px-2 py-0.5 mt-1.5 text-[11px] font-mono font-medium rounded-md bg-slate-800 text-slate-400 group-hover:bg-cyan-500/10 group-hover:text-cyan-300 transition-colors">
+              12x0
+            </span>
           </div>
-          <i class="fa-solid fa-chevron-right text-gray-500 group-hover:text-cyan-400 transition"></i>
+          <div class="w-8 h-8 rounded-lg bg-slate-800/80 group-hover:bg-cyan-500 text-slate-500 group-hover:text-slate-950 flex items-center justify-center transition-all duration-300 shadow-inner">
+            <i class="fa-solid fa-chevron-right text-xs transition-transform group-hover:translate-x-0.5"></i>
+          </div>
         </a>
 
-        <a href="fast-extra-short.html" class="group bg-gray-800/80 hover:bg-gray-800 border border-gray-700/80 hover:border-cyan-500 p-5 rounded-xl transition duration-200 flex justify-between items-center shadow-lg">
+        <!-- Extra Short -->
+        <a href="fast-extra-short.html" class="card-glow group bg-slate-900/60 hover:bg-slate-900 border border-slate-800 hover:border-cyan-500/50 p-5 rounded-2xl transition duration-300 flex justify-between items-center shadow-lg backdrop-blur-md">
           <div>
-            <h3 class="font-bold text-white group-hover:text-cyan-400 transition">Extra Short</h3>
-            <p class="text-xs font-mono text-gray-400 mt-1">16x1</p>
+            <h3 class="font-bold text-slate-200 group-hover:text-cyan-400 transition-colors">Extra Short</h3>
+            <span class="inline-block px-2 py-0.5 mt-1.5 text-[11px] font-mono font-medium rounded-md bg-slate-800 text-slate-400 group-hover:bg-cyan-500/10 group-hover:text-cyan-300 transition-colors">
+              16x1
+            </span>
           </div>
-          <i class="fa-solid fa-chevron-right text-gray-500 group-hover:text-cyan-400 transition"></i>
+          <div class="w-8 h-8 rounded-lg bg-slate-800/80 group-hover:bg-cyan-500 text-slate-500 group-hover:text-slate-950 flex items-center justify-center transition-all duration-300 shadow-inner">
+            <i class="fa-solid fa-chevron-right text-xs transition-transform group-hover:translate-x-0.5"></i>
+          </div>
         </a>
 
-        <a href="fast-short.html" class="group bg-gray-800/80 hover:bg-gray-800 border border-gray-700/80 hover:border-cyan-500 p-5 rounded-xl transition duration-200 flex justify-between items-center shadow-lg">
+        <!-- Short -->
+        <a href="fast-short.html" class="card-glow group bg-slate-900/60 hover:bg-slate-900 border border-slate-800 hover:border-cyan-500/50 p-5 rounded-2xl transition duration-300 flex justify-between items-center shadow-lg backdrop-blur-md">
           <div>
-            <h3 class="font-bold text-white group-hover:text-cyan-400 transition">Short</h3>
-            <p class="text-xs font-mono text-gray-400 mt-1">28x3</p>
+            <h3 class="font-bold text-slate-200 group-hover:text-cyan-400 transition-colors">Short</h3>
+            <span class="inline-block px-2 py-0.5 mt-1.5 text-[11px] font-mono font-medium rounded-md bg-slate-800 text-slate-400 group-hover:bg-cyan-500/10 group-hover:text-cyan-300 transition-colors">
+              28x3
+            </span>
           </div>
-          <i class="fa-solid fa-chevron-right text-gray-500 group-hover:text-cyan-400 transition"></i>
+          <div class="w-8 h-8 rounded-lg bg-slate-800/80 group-hover:bg-cyan-500 text-slate-500 group-hover:text-slate-950 flex items-center justify-center transition-all duration-300 shadow-inner">
+            <i class="fa-solid fa-chevron-right text-xs transition-transform group-hover:translate-x-0.5"></i>
+          </div>
         </a>
 
-        <a href="fast-normal.html" class="group bg-gray-800/80 hover:bg-gray-800 border border-gray-700/80 hover:border-cyan-500 p-5 rounded-xl transition duration-200 flex justify-between items-center shadow-lg">
+        <!-- Normal -->
+        <a href="fast-normal.html" class="card-glow group bg-slate-900/60 hover:bg-slate-900 border border-slate-800 hover:border-cyan-500/50 p-5 rounded-2xl transition duration-300 flex justify-between items-center shadow-lg backdrop-blur-md">
           <div>
-            <h3 class="font-bold text-white group-hover:text-cyan-400 transition">Normal</h3>
-            <p class="text-xs font-mono text-gray-400 mt-1">51x6</p>
+            <h3 class="font-bold text-slate-200 group-hover:text-cyan-400 transition-colors">Normal</h3>
+            <span class="inline-block px-2 py-0.5 mt-1.5 text-[11px] font-mono font-medium rounded-md bg-slate-800 text-slate-400 group-hover:bg-cyan-500/10 group-hover:text-cyan-300 transition-colors">
+              51x6
+            </span>
           </div>
-          <i class="fa-solid fa-chevron-right text-gray-500 group-hover:text-cyan-400 transition"></i>
+          <div class="w-8 h-8 rounded-lg bg-slate-800/80 group-hover:bg-cyan-500 text-slate-500 group-hover:text-slate-950 flex items-center justify-center transition-all duration-300 shadow-inner">
+            <i class="fa-solid fa-chevron-right text-xs transition-transform group-hover:translate-x-0.5"></i>
+          </div>
         </a>
 
       </div>
     </section>
 
-    <!-- SEÇÃO: PARKOUR -->
+    <!-- SEÇÃO 2: PARKOUR -->
     <section>
-      <div class="flex items-center gap-3 mb-6 border-b border-gray-800 pb-3">
-        <i class="fa-solid fa-person-running text-2xl text-cyan-400"></i>
-        <h2 class="text-2xl font-bold uppercase tracking-wide">Parkour</h2>
+      <div class="flex items-center gap-3 mb-6 pb-3 border-b border-slate-800/80">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-md">
+          <i class="fa-solid fa-person-running text-lg"></i>
+        </div>
+        <div>
+          <h2 class="text-xl md:text-2xl font-extrabold uppercase tracking-wide text-white">Parkour</h2>
+          <p class="text-xs text-slate-500">Mapas de movimentação e precisão</p>
+        </div>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         
-        <a href="pk-dimensions.html" class="group bg-gray-800/80 hover:bg-gray-800 border border-gray-700/80 hover:border-cyan-500 p-5 rounded-xl transition duration-200 flex justify-between items-center shadow-lg">
+        <!-- Dimensions -->
+        <a href="pk-dimensions.html" class="card-glow group bg-slate-900/60 hover:bg-slate-900 border border-slate-800 hover:border-cyan-500/50 p-5 rounded-2xl transition duration-300 flex justify-between items-center shadow-lg backdrop-blur-md">
           <div>
-            <h3 class="font-bold text-white group-hover:text-cyan-400 transition">Dimensions</h3>
-            <p class="text-xs text-gray-400 mt-1">Mapa Temático</p>
+            <h3 class="font-bold text-slate-200 group-hover:text-cyan-400 transition-colors">Dimensions</h3>
+            <p class="text-xs text-slate-500 mt-1">Mapa Temático</p>
           </div>
-          <i class="fa-solid fa-chevron-right text-gray-500 group-hover:text-cyan-400 transition"></i>
+          <div class="w-8 h-8 rounded-lg bg-slate-800/80 group-hover:bg-cyan-500 text-slate-500 group-hover:text-slate-950 flex items-center justify-center transition-all duration-300 shadow-inner">
+            <i class="fa-solid fa-chevron-right text-xs transition-transform group-hover:translate-x-0.5"></i>
+          </div>
         </a>
 
-        <a href="pk-movement-1.html" class="group bg-gray-800/80 hover:bg-gray-800 border border-gray-700/80 hover:border-cyan-500 p-5 rounded-xl transition duration-200 flex justify-between items-center shadow-lg">
+        <!-- Movement Pk1 -->
+        <a href="pk-movement-1.html" class="card-glow group bg-slate-900/60 hover:bg-slate-900 border border-slate-800 hover:border-cyan-500/50 p-5 rounded-2xl transition duration-300 flex justify-between items-center shadow-lg backdrop-blur-md">
           <div>
-            <h3 class="font-bold text-white group-hover:text-cyan-400 transition">Movement Pk1</h3>
-            <p class="text-xs text-gray-400 mt-1">Nível Técnico 1</p>
+            <h3 class="font-bold text-slate-200 group-hover:text-cyan-400 transition-colors">Movement Pk1</h3>
+            <p class="text-xs text-slate-500 mt-1">Nível Técnico 1</p>
           </div>
-          <i class="fa-solid fa-chevron-right text-gray-500 group-hover:text-cyan-400 transition"></i>
+          <div class="w-8 h-8 rounded-lg bg-slate-800/80 group-hover:bg-cyan-500 text-slate-500 group-hover:text-slate-950 flex items-center justify-center transition-all duration-300 shadow-inner">
+            <i class="fa-solid fa-chevron-right text-xs transition-transform group-hover:translate-x-0.5"></i>
+          </div>
         </a>
 
-        <a href="pk-movement-2.html" class="group bg-gray-800/80 hover:bg-gray-800 border border-gray-700/80 hover:border-cyan-500 p-5 rounded-xl transition duration-200 flex justify-between items-center shadow-lg">
+        <!-- Movement Pk2 -->
+        <a href="pk-movement-2.html" class="card-glow group bg-slate-900/60 hover:bg-slate-900 border border-slate-800 hover:border-cyan-500/50 p-5 rounded-2xl transition duration-300 flex justify-between items-center shadow-lg backdrop-blur-md">
           <div>
-            <h3 class="font-bold text-white group-hover:text-cyan-400 transition">Movement Pk2</h3>
-            <p class="text-xs text-gray-400 mt-1">Nível Técnico 2</p>
+            <h3 class="font-bold text-slate-200 group-hover:text-cyan-400 transition-colors">Movement Pk2</h3>
+            <p class="text-xs text-slate-500 mt-1">Nível Técnico 2</p>
           </div>
-          <i class="fa-solid fa-chevron-right text-gray-500 group-hover:text-cyan-400 transition"></i>
+          <div class="w-8 h-8 rounded-lg bg-slate-800/80 group-hover:bg-cyan-500 text-slate-500 group-hover:text-slate-950 flex items-center justify-center transition-all duration-300 shadow-inner">
+            <i class="fa-solid fa-chevron-right text-xs transition-transform group-hover:translate-x-0.5"></i>
+          </div>
         </a>
 
-        <a href="pk-ice-race.html" class="group bg-gray-800/80 hover:bg-gray-800 border border-gray-700/80 hover:border-cyan-500 p-5 rounded-xl transition duration-200 flex justify-between items-center shadow-lg">
+        <!-- Ice Race -->
+        <a href="pk-ice-race.html" class="card-glow group bg-slate-900/60 hover:bg-slate-900 border border-slate-800 hover:border-cyan-500/50 p-5 rounded-2xl transition duration-300 flex justify-between items-center shadow-lg backdrop-blur-md">
           <div>
-            <h3 class="font-bold text-white group-hover:text-cyan-400 transition">Ice Race</h3>
-            <p class="text-xs text-gray-400 mt-1">Corrida no Gelo</p>
+            <h3 class="font-bold text-slate-200 group-hover:text-cyan-400 transition-colors">Ice Race</h3>
+            <p class="text-xs text-slate-500 mt-1">Corrida no Gelo</p>
           </div>
-          <i class="fa-solid fa-chevron-right text-gray-500 group-hover:text-cyan-400 transition"></i>
+          <div class="w-8 h-8 rounded-lg bg-slate-800/80 group-hover:bg-cyan-500 text-slate-500 group-hover:text-slate-950 flex items-center justify-center transition-all duration-300 shadow-inner">
+            <i class="fa-solid fa-chevron-right text-xs transition-transform group-hover:translate-x-0.5"></i>
+          </div>
         </a>
 
-        <a href="pk-snow-land.html" class="group bg-gray-800/80 hover:bg-gray-800 border border-gray-700/80 hover:border-cyan-500 p-5 rounded-xl transition duration-200 flex justify-between items-center shadow-lg">
+        <!-- Snow Land -->
+        <a href="pk-snow-land.html" class="card-glow group bg-slate-900/60 hover:bg-slate-900 border border-slate-800 hover:border-cyan-500/50 p-5 rounded-2xl transition duration-300 flex justify-between items-center shadow-lg backdrop-blur-md">
           <div>
-            <h3 class="font-bold text-white group-hover:text-cyan-400 transition">Snow Land</h3>
-            <p class="text-xs text-gray-400 mt-1">Mapa Temático</p>
+            <h3 class="font-bold text-slate-200 group-hover:text-cyan-400 transition-colors">Snow Land</h3>
+            <p class="text-xs text-slate-500 mt-1">Mapa Temático</p>
           </div>
-          <i class="fa-solid fa-chevron-right text-gray-500 group-hover:text-cyan-400 transition"></i>
+          <div class="w-8 h-8 rounded-lg bg-slate-800/80 group-hover:bg-cyan-500 text-slate-500 group-hover:text-slate-950 flex items-center justify-center transition-all duration-300 shadow-inner">
+            <i class="fa-solid fa-chevron-right text-xs transition-transform group-hover:translate-x-0.5"></i>
+          </div>
         </a>
 
       </div>
