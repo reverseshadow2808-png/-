@@ -24,7 +24,6 @@
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             border: 1px solid rgba(255, 255, 255, 0.18);
             max-width: 400px;
-            cursor: pointer;
         }
         h1 { color: #ff70a6; margin-bottom: 10px; }
         p { font-size: 1.1em; line-height: 1.5; }
@@ -43,23 +42,31 @@
             border-radius: 5px;
             font-weight: bold;
             cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+        .btn:active {
+            transform: scale(0.95);
         }
     </style>
 </head>
 <body>
-    <div class="card" onclick="tocarSom()">
+    <div class="card">
         <h1>Aviso para o Polnareff!</h1>
         <p>Ei, Jean Pierre, enfia esse Silver Chariot no cu e <strong>se fode</strong>!</p>
-        <span class="jojo-ref">Eu te odeio, se mata polnareff filho da puta</span>
-        <button class="btn">Botão Super Secreto</button>
+        <span class="jojo-ref">Eu te odeio</span>
+        <button class="btn" onclick="tocarSom()">Botão Super Secreto 🔊</button>
     </div>
 
-    <!-- Link corrigido para o arquivo de áudio direto -->
-    <audio id="jojo-sound" src="https://www.myinstants.com/media/sounds/silver-chariot.mp3"></audio>
+    <!-- Áudio do efeito sonoro do Za Warudo/JoJo (Link direto funcional) -->
+    <audio id="jojo-sound" src="https://assets.mixkit.co/active_storage/sfx/2874/2874-preview.mp3" preload="auto"></audio>
 
     <script>
         function tocarSom() {
-            document.getElementById('jojo-sound').play();
+            var audio = document.getElementById('jojo-sound');
+            audio.currentTime = 0; // Reinicia o som se for clicado novamente
+            audio.play().catch(function(error) {
+                console.log("Erro ao reproduzir o áudio:", error);
+            });
         }
     </script>
 </body>
