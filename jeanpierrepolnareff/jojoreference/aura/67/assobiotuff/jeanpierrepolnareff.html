@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recado para o Polnareff</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 400px;
+            cursor: pointer;
+        }
+        h1 { color: #ff70a6; margin-bottom: 10px; }
+        p { font-size: 1.1em; line-height: 1.5; }
+        .jojo-ref {
+            font-weight: bold;
+            color: #ffd166;
+            margin-top: 15px;
+            display: block;
+        }
+        .btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #ff70a6;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="card" onclick="tocarSom()">
+        <h1>Aviso para o Polnareff!</h1>
+        <p>Ei, Jean Pierre, solta esse Silver Chariot e <strong>se cuida</strong>!</p>
+        <span class="jojo-ref">Nem a velocidade da sua espada te salva se você não se cuidar! ⚔️✨</span>
+        <button class="btn">Clique para o som de JoJo 🔊</button>
+    </div>
+
+    <audio id="jojo-sound" src="https://www.myinstants.com/media/sounds/jojo-posse.mp3"></audio>
+
+    <script>
+        function tocarSom() {
+            document.getElementById('jojo-sound').play();
+        }
+    </script>
+</body>
+</html>
