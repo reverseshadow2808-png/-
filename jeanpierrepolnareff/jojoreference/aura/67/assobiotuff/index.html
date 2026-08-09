@@ -24,6 +24,9 @@
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             border: 1px solid rgba(255, 255, 255, 0.18);
             max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         h1 { color: #ff70a6; margin-bottom: 10px; }
         p { font-size: 1.1em; line-height: 1.5; }
@@ -31,21 +34,12 @@
             font-weight: bold;
             color: #ffd166;
             margin-top: 15px;
+            margin-bottom: 20px;
             display: block;
         }
-        .btn {
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: #ff70a6;
+        iframe {
+            border-radius: 10px;
             border: none;
-            color: white;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.1s ease;
-        }
-        .btn:active {
-            transform: scale(0.95);
         }
     </style>
 </head>
@@ -53,21 +47,10 @@
     <div class="card">
         <h1>Aviso para o Polnareff!</h1>
         <p>Ei, Jean Pierre, enfia esse Silver Chariot no cu e <strong>se fode</strong>!</p>
-        <span class="jojo-ref">Eu te odeio</span>
-        <button class="btn" onclick="tocarSom()">Botão Super Secreto 🔊</button>
+        <span class="jojo-ref">Eu te odeio filho da puta</span>
+        
+        <!-- Botão oficial incorporado do MyInstants -->
+        <iframe width="110" height="200" src="https://www.myinstants.com/instant/silver-chariot-95459/embed/" frameborder="0" scrolling="no"></iframe>
     </div>
-
-    <!-- Áudio do efeito sonoro do Za Warudo/JoJo (Link direto funcional) -->
-    <audio id="jojo-sound" src="https://assets.mixkit.co/active_storage/sfx/2874/2874-preview.mp3" preload="auto"></audio>
-
-    <script>
-        function tocarSom() {
-            var audio = document.getElementById('jojo-sound');
-            audio.currentTime = 0; // Reinicia o som se for clicado novamente
-            audio.play().catch(function(error) {
-                console.log("Erro ao reproduzir o áudio:", error);
-            });
-        }
-    </script>
 </body>
 </html>
